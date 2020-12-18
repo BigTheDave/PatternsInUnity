@@ -290,21 +290,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EventName: LightToggle
-  OnBooleanMessageRecieved:
+  ExpectedType: 1
+  OnMessageRecieved:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 705507993}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  BOOLEANMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  INTMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  FLOATMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  STRINGMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  GAMEOBJECTMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  TRANSFORMMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  COLORMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  VECTOR2MessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  VECTOR3MessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &759755266
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +633,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EventName: LightToggle
-  OnBooleanMessageRecieved:
+  ExpectedType: 1
+  OnMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  BOOLEANMessageRecieved:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1182268230}
@@ -632,6 +652,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  INTMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  FLOATMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  STRINGMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  GAMEOBJECTMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  TRANSFORMMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  COLORMessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  VECTOR2MessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  VECTOR3MessageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1182268233
 MonoBehaviour:
   m_ObjectHideFlags: 0
