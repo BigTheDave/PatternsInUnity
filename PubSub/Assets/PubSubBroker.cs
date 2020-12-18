@@ -17,11 +17,17 @@ public class PubSubBroker : MonoBehaviour
     {
         public string EventName;
         public object Sender;
+        public bool HasValue;
         public object Value;
+        public bool Is<T>()
+        {
+            if (!HasValue) return false;
+            return (Value is T);
+        }
 
         public T GetValue<T>()
-        {
-            if(Value is T)
+        { 
+            if (Is<T>())
             {
                 return (T)Value;
             }
@@ -55,19 +61,14 @@ public class PubSubBroker : MonoBehaviour
         }
         EventLibrary[EventName].Remove(Callback);
     }
-    public void Publish<T>(string EventName, object sender, T value)
+    private void PublishMessage(PubSubMessage message)
     {
+        var EventName = message.EventName;
         if (!EventLibrary.ContainsKey(EventName))
         {
             Debug.LogWarning($"PubSubBroker: Event Name '{EventName}' not found");
             return;
         }
-        var message = new PubSubMessage()
-        {
-            EventName = EventName,
-            Sender = sender,
-            Value = value
-        };
         foreach (var callback in EventLibrary[EventName])
         {
             try
@@ -79,5 +80,28 @@ public class PubSubBroker : MonoBehaviour
                 Debug.LogException(ex);
             }
         }
+
+    }
+    public void Publish(string EventName, object sender)
+    {
+        var message = new PubSubMessage()
+        {
+            EventName = EventName,
+            Sender = sender,
+            HasValue = false,
+            Value = null
+        };
+        PublishMessage(message);
+    }
+    public void Publish<T>(string EventName, object sender, T value)
+    { 
+        var message = new PubSubMessage()
+        {
+            EventName = EventName,
+            Sender = sender,
+            HasValue = true,
+            Value = value
+        };
+        PublishMessage(message);
     }
 }
